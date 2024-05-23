@@ -1,10 +1,14 @@
 sleep 10
 
+sed -i "s|listen = /run/php/php7.3-fpm.sock|listen = wordpress:9000|" /etc/php/7.3/fpm/pool.d/www.conf
+
+cd /var/www/wordpress
+
 wp config create --allow-root \
 	--dbname=$SQL_DATABASE \
 	--dbuser=$SQL_USER \
 	--dbpass=$SQL_PASSWORD \
-	--dbhost=mariadb:3306 --path='/var/www/wordpress'
+	--dbhost=$SQL_HOST
 
 wp core install --allow-root \
 	--url="${DOMAIN_NAME}" \
