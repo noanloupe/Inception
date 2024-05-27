@@ -16,6 +16,11 @@ COPY	conf/php-fpm.conf /etc/php/7.3/fpm/
 RUN	wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 RUN	chmod +x wp-cli.phar
 RUN	mv wp-cli.phar /usr/local/bin/wp
+
+RUN mkdir -p /var/log/php7.3-fpm && \
+    chmod 755 /var/log/php7.3-fpm && \
+    chown -R www-data:www-data /var/log/php7.3-fpm
+
 COPY	script.sh /
 RUN	chmod +x /script.sh
 
