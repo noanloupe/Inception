@@ -63,11 +63,11 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/noloupe/Inception/volumes/mariadb
+      device: /home/noloupe/data/mariadb
   
   wordpress_data:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /home/noloupe/Inception/volumes/wordpress
+      device: /home/noloupe/data/wordpress
