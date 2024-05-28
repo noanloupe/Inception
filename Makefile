@@ -1,6 +1,7 @@
 all: build
 
 build:
+	sudo sed -i 's/ noloupe.42.fr//' /etc/hosts
 	mkdir -p /home/noloupe/data/mariadb
 	mkdir -p /home/noloupe/data/wordpress
 	sudo sed -i 's/^127.0.0.1.*localhost/& noloupe.42.fr/' /etc/hosts
